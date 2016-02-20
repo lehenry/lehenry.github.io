@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+	<!--link rel="stylesheet" href="slate/css/slate.min.css">-->
+	<title>ScoreCards Configuration</title>
+</head>
+<body>
+
+	<div class="item-container">
+		<div class="item-container-header">Players Names</div>
+		<div class="item-container-content">
+			<label class="item">Player 1
+				<input type="text" name="player1" id="player1" value=""/>
+	<!--		<div class="button-container">
+				<input id="buttonAdd" type="button" class="item-button" value="+" onClick="addPlayer()">
+			</div>		-->		
+			</label>
+			<br/>
+			<label class="item">Player 2
+				<input type="text" name="player2" id="player2" value=""/>
+			</label>
+			<br/>
+			<label class="item">Player 3
+				<input type="text" name="player3" id="player3" value=""/>
+			</label>
+			<br/>
+			<label class="item">Player 4
+				<input type="text" name="player4" id="player4" value=""/>
+			</label>
+			<br/>
+			<label class="item">Player 5
+				<input type="text" name="player5" id="player5" value=""/>
+			</label>
+			<br/>
+		</div>
+	</div>
+
+	<div class="item-container">
+		<div class="button-container">
+			<input id="buttonDone" type="button" class="item-button" value="Done" onClick="done()">
+		</div>
+	</div>
+
+<script>
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+		results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	// setup button handler for buttonDone
+	function done() {
+		var options = {};
+		var errorMessage="";
+		options.playerNames = [];
+		for(var i=1;i<6;i++){
+			var name=document.getElementById("player"+i).value;
+			if(name!=='' && options.playerNames.indexOf(name)==-1){
+				options.playerNames.push(name);
+			}else if(name!==''){
+				errorMessage+="Error on player "+i+" - name already exists";
+			}
+		}
+		if(errorMessage!==''){
+			alert(errorMessage);
+		} else {
+		alert(JSON.stringify(options));
+			document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));
+		}
+	}
+	
+</script>
+</body>
+</html>
