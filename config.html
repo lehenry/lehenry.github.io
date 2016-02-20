@@ -64,9 +64,8 @@
 			}
 		}
 		if(errorMessage!==''){
-			alert(errorMessage);
+			//here be a message to the user
 		} else {
-		alert(JSON.stringify(options));
 			document.location = 'pebblejs://close#' + encodeURIComponent(JSON.stringify(options));
 		}
 	}
