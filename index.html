@@ -46,12 +46,26 @@
 	</div>
     <div class='item-container'>
       <div class='button-container'>
+        <input id='refresh_button' type='button' class='item-button' value='Refresh'>
+      </div>
+	  <div class='item-container-footer'>
+        Refresh page to move new items.
+      </div>
+    </div>	
+    <div class='item-container'>
+      <div class='button-container'>
         <input id='submit_button' type='button' class='item-button' value='SAVE'>
       </div>
     </div>
   </body>
   <script>
 
+  var refreshButton = document.getElementById('refresh_button');
+  refreshButton.addEventListener('click', function() {
+	getConfigData();
+	location.reload(); 
+  });
+		
   function getConfigData() {
 	var players=[];
 	$('[name=players] [class=item]').each(function()
@@ -84,22 +98,13 @@
   var submitButton = document.getElementById('submit_button');
   submitButton.addEventListener('click', function() {
     console.log('Submit');
-
+	location.reload();
     // Set the return URL depending on the runtime environment
     var return_to = getQueryParam('return_to', 'pebblejs://close#');
+
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
 
-  $('[name=add-item]').focusout(function(){
-     var $handlebar = '<div class="item-draggable-handle">'
-                        + '<div class="item-draggable-handle-bar"></div>'
-                        + '<div class="item-draggable-handle-bar"></div>'
-                        + '<div class="item-draggable-handle-bar"></div>'
-                      + '</div>';
-	$(this).parent().append($handlebar);	
-  
-  	});
-  	
   (function() {
 	var players=[];
 	$('[name=players] [class=item]').each(function()
@@ -115,5 +120,7 @@
 	  }
     }
   })();
+
+  
   </script>
 </html>
