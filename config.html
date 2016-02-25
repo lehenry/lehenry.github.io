@@ -107,10 +107,11 @@
     // Load any previously saved configuration, if available
     if(players.length===0 && localStorage['playerNames']) {
 		players = JSON.parse(localStorage['playerNames']);
-		for(var i=0;i<players.length;i++){
+
+    }
+    		for(var i=0;i<players.length;i++){
 		$('[name=players]').append(" <label class=\"item\">"+players[i]+"</label>");
 	  }
-    }
   })();
   
   </script>
