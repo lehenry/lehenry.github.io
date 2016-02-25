@@ -101,17 +101,21 @@
   });
   (function() {
   	//console.log(JSON.stringify(options));
-  	//var players=[];
-	var players= options['playerNames'];
+  	var players=[];
+  	$('[name=players] [class=item]').each(function()
+ 	{
+ 		players.push($(this).text());
+ 	});
+	//var players= options['playerNames'];
 	console.log(players);
-    // Load any previously saved configuration, if available
-    if(players.length===0 && localStorage['playerNames']) {
+	// Load any previously saved configuration, if available
+	if(players.length===0 && localStorage['playerNames']) {
 		players = JSON.parse(localStorage['playerNames']);
-
-    }
-    		for(var i=0;i<players.length;i++){
+	
+	}
+	for(var i=0;i<players.length;i++){
 		$('[name=players]').append(" <label class=\"item\">"+players[i]+"</label>");
-	  }
+	}
   })();
   
   </script>
