@@ -107,11 +107,8 @@
 
   (function() {
   	console.log(JSON.stringify(options));
+  	var players=[];
 	//var players= JSON.parse(getQueryParam('playerNames', []));
-	$('[name=players] [class=item]').each(function()
-	{
-		players.push($(this).text());
-	});
 
     // Load any previously saved configuration, if available
     if(localStorage['playerNames']) {
