@@ -107,7 +107,7 @@
 
   (function() {
   	console.log(JSON.stringify(options));
-	var players=[];
+	var players= getQueryParam('playerNames', []);
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
