@@ -102,7 +102,7 @@
   (function() {
   	//console.log(JSON.stringify(options));
   	//var players=[];
-	var players= getQueryParam('playerNames', []);
+	var players= JSON.parse(getQueryParam('playerNames', []));
 	console.log(players);
     // Load any previously saved configuration, if available
     if(players.length===0 && localStorage['playerNames']) {
