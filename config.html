@@ -102,18 +102,12 @@
   (function() {
   	
   	//
-  	console.log('1. '+JSON.stringify(localStorage['players']));
-  	console.log('2. '+getQueryParam('players'));
-  	console.log('3. '+JSON.stringify(localStorage['playerNames']));
-  	console.log('4. '+getQueryParam('playerNames'));
-  	var players=[];
-  	$('[name=players] [class=item]').each(function()
- 	{
- 		players.push($(this).text());
- 	});
+  	console.log('1. '+decodeURIComponent(window.location.hash.substring(1)));
+  	var players=JSON.parse(decodeURIComponent(window.location.hash.substring(1)))['playerNames'];
+
 	//var players= options['playerNames'];
 	console.log(players);
-	// Load any previously saved configuration, if available
+	// Load any previously saved configuration, if available and not passed by parameters
 	if(players.length===0 && localStorage['playerNames']) {
 		players = JSON.parse(localStorage['playerNames']);
 	
