@@ -101,9 +101,9 @@
   });
   (function() {
   	console.log('1. '+JSON.stringify(localStorage['players']));
-  	console.log('2. '+getQueryParam('players']));
+  	console.log('2. '+getQueryParam(JSON.stringify('players'])));
   	console.log('3. '+JSON.stringify(localStorage['playerNames']));
-  	console.log('4. '+getQueryParam('playerNames']));
+  	console.log('4. '+getQueryParam(JSON.stringify('playerNames'])));
   	var players=[];
   	$('[name=players] [class=item]').each(function()
  	{
