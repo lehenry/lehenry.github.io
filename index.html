@@ -106,16 +106,13 @@
   });
 
   (function() {
-  	//console.log(JSON.stringify(options));
-  	var players=[];
-	//var players= JSON.parse(getQueryParam('playerNames', []));
-
-    // Load any previously saved configuration, if available
-    if(localStorage['playerNames']) {
-		players = JSON.parse(localStorage['playerNames']);
-		for(var i=0;i<players.length;i++){
-		$('[name=players]').append(" <label class=\"item\">"+players[i]+"</label>");
-	  }
+     var players=JSON.parse(decodeURIComponent(window.location.hash.substring(1)))['playerNames'];
+    // Load any previously saved configuration, if available and not passed by parameters
+    if(players.length===0 && localStorage['playerNames']) {
+	players = JSON.parse(localStorage['playerNames']);
+    }
+    for(var i=0;i<players.length;i++){
+	$('[name=players]').append(" <label class=\"item\">"+players[i]+"</label>");	  
     }
   })();
 
