@@ -100,7 +100,10 @@
     document.location = return_to + encodeURIComponent(JSON.stringify(getConfigData()));
   });
   (function() {
-  	console.log(JSON.stringify(localStorage['options']));
+  	console.log('1. '+JSON.stringify(localStorage['players']));
+  	console.log('2. '+getQueryParam('players']));
+  	console.log('3. '+JSON.stringify(localStorage['playerNames']));
+  	console.log('4. '+getQueryParam('playerNames']));
   	var players=[];
   	$('[name=players] [class=item]').each(function()
  	{
