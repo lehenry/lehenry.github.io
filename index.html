@@ -75,7 +75,7 @@
 		
   function getConfigData() {
 	var players=[];
-	var isBestMax=$('[name=isBestMax] [class=item]').checked;
+	var isBestMax=$('[name=isBestMax] [class=item]').checked? 1 : 0;
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
