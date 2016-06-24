@@ -56,7 +56,7 @@
   <div class="item-container-content">
     <label class="item">
       Best score is max score
-      <input type="checkbox" class="item-checkbox" name="isBestMax">
+      <input type="checkbox" class="item-checkbox" id="isBestMax">
     </label>
     </div>
     <div class='item-container'>
@@ -75,7 +75,7 @@
 		
   function getConfigData() {
 	var players=[];
-	var isBestMax=$('[name=isBestMax]').checked== 'true' ? 1 : 0;
+	var isBestMax=document.getElementById('isBestMax').checked;
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
