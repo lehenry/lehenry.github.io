@@ -117,6 +117,9 @@
   (function() {
      var players=JSON.parse(decodeURIComponent(window.location.hash.substring(1)))['playerNames'];
     // Load any previously saved configuration, if available and not passed by parameters
+    if(localStorage['isBestMax']!==null){
+    	document.getElementById('isBestMax').checked=true;
+    }
     if(players.length===0 && localStorage['playerNames']) {
 	players = JSON.parse(localStorage['playerNames']);
     }
