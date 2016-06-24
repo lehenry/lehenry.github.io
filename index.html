@@ -52,6 +52,13 @@
         Refresh page to move new items.
       </div>
     </div>	
+  <div class="item-container-header">Game Settings</div>
+  <div class="item-container-content">
+    <label class="item">
+      Best score is max score
+      <input type="checkbox" class="item-checkbox" name="isBestMax">
+    </label>
+    </div>
     <div class='item-container'>
       <div class='button-container'>
         <input id='submit_button' type='button' class='item-button' value='SAVE'>
@@ -68,17 +75,19 @@
 		
   function getConfigData() {
 	var players=[];
+	var isBestMax=$('[name=isBestMax] [class=item]');
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
 	});
     var options = {
       'playerNames': players
+      'isBestMax': isBestMax;
     };
 
     // Save for next launch
     localStorage['playerNames'] = JSON.stringify(options['playerNames']);
-
+    localStorage['isBestMax'] = JSON.stringify(options['isBestMax']);
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
