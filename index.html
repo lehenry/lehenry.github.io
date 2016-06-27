@@ -86,6 +86,7 @@
   function getConfigData() {
 	var players=[];
 	var isBestMax=document.getElementById('isBestMax').checked;
+	var initScore=document.getElementById('initScore').value;
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
