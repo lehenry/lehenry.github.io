@@ -136,7 +136,10 @@
     if(Number(localStorage['initScore'])){
     	document.getElementById('initScoreSlide').value=JSON.parse(localStorage['initScore']);
     	document.getElementById('initScore').value=JSON.parse(localStorage['initScore']);
-    }    
+    }else{
+    	document.getElementById('initScoreSlide').value=0;
+    	document.getElementById('initScore').value=0;
+    }
     if(players.length===0 && localStorage['playerNames']) {
 	players = JSON.parse(localStorage['playerNames']);
     }
