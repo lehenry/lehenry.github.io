@@ -51,13 +51,23 @@
 	  <div class='item-container-footer'>
         Refresh page to move new items.
       </div>
-    </div>	
+    </div>
+  <div class="item-container">    
   <div class="item-container-header">Game Settings</div>
   <div class="item-container-content">
     <label class="item">
       Best score is max score
       <input type="checkbox" class="item-checkbox" id="isBestMax">
     </label>
+   </div>
+   <div class="item-container-content">
+    <label class="item">
+      Initial Score
+      <div class="item-input-wrapper">
+        <input type="text" class="item-input" name="input-1" placeholder="Input field">
+      </div>
+    </label>
+    </div>
     </div>
     <div class='item-container'>
       <div class='button-container'>
@@ -82,12 +92,14 @@
 	});
     var options = {
       'playerNames': players,
-      'isBestMax': isBestMax
+      'isBestMax': isBestMax,
+      'initScore': initScore
     };
 
     // Save for next launch
     localStorage['playerNames'] = JSON.stringify(options['playerNames']);
     localStorage['isBestMax'] = JSON.stringify(options['isBestMax']);
+    localStorage['initScore'] = JSON.stringify(options['initScore']);
     console.log('Got options: ' + JSON.stringify(options));
     return options;
   }
@@ -120,6 +132,9 @@
     if(localStorage['isBestMax']!==null){
     	document.getElementById('isBestMax').checked=JSON.parse(localStorage['isBestMax']);
     }
+    if(localStorage['initScore']){
+    	document.getElementById('initScore').value=JSON.parse(localStorage['isBestMax']);
+    }    
     if(players.length===0 && localStorage['playerNames']) {
 	players = JSON.parse(localStorage['playerNames']);
     }
