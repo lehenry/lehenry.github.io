@@ -86,7 +86,7 @@
   function getConfigData() {
 	var players=[];
 	var isBestMax=document.getElementById('isBestMax').checked;
-	var initScore=document.getElementById('initScore').value;
+	var initScore=Number(document.getElementById('initScore').value);
 	$('[name=players] [class=item]').each(function()
 	{
 		players.push($(this).text());
@@ -133,7 +133,7 @@
     if(localStorage['isBestMax']!==null){
     	document.getElementById('isBestMax').checked=JSON.parse(localStorage['isBestMax']);
     }
-    if(localStorage['initScore']){
+    if(Number(localStorage['initScore'])){
     	document.getElementById('initScoreSlide').value=JSON.parse(localStorage['initScore']);
     	document.getElementById('initScore').value=JSON.parse(localStorage['initScore']);
     }    
